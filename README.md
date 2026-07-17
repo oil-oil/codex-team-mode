@@ -3,16 +3,12 @@
 </p>
 
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="Dev Team routes bounded development work from one main Codex thread to four focused subagents.">
+  <img src="./assets/readme/agent-map.svg" width="100%" alt="Four character-driven Dev Team agents divide repository exploration, clear fixes, complex implementation, and independent review while the main thread leads and verifies the work.">
 </p>
 
 `dev-team` is a Codex Skill for routing real repository work across four focused custom agents while the main thread stays responsible for decisions, scope, verification, and final delivery.
 
 It is designed around a simple idea: delegation should reduce context noise or save time. It should not become a mandatory ceremony, duplicate a long conversation into every agent, or let an implementation review itself.
-
-<p align="center">
-  <img src="./assets/readme/agent-map.svg" width="100%" alt="The main thread routes exploration and implementation to bounded agents, then sends complex or high-risk changes to an independent Reviewer with no inherited history.">
-</p>
 
 ## Four focused roles
 
@@ -125,4 +121,3 @@ codex-dev-team/
 ```
 
 MIT License
-

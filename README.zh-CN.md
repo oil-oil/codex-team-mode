@@ -3,16 +3,12 @@
 </p>
 
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="Dev Team 把边界清楚的开发任务从 Codex 主线程分配给四个专注的子 Agent。">
+  <img src="./assets/readme/agent-map.svg" width="100%" alt="四个角色化的 Dev Team Agent 分别负责代码探索、明确修改、复杂实现和独立复审，主线程负责带队与验收。">
 </p>
 
 `dev-team` 是一个 Codex Skill。它会把真实仓库里的开发工作分配给四个职责明确的自定义 Agent，但需求理解、范围控制、结果验证和最终交付仍然由主线程负责。
 
 它的出发点很简单：只有在能够减少上下文噪音或节省等待时间时才委派。子 Agent 不是必须走完的流水线，也不应该复制整段长对话，更不能让代码的实现者代替独立复审。
-
-<p align="center">
-  <img src="./assets/readme/agent-map.svg" width="100%" alt="主线程把探索和实现交给边界明确的 Agent，再把复杂或高风险结果交给不继承历史对话的独立 Reviewer。">
-</p>
 
 ## 四个专注的角色
 
@@ -125,4 +121,3 @@ codex-dev-team/
 ```
 
 MIT License
-

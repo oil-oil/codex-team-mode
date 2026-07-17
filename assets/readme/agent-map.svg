@@ -1,77 +1,208 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
-  <title id="title">Dev Team routing map</title>
-  <desc id="desc">The main thread keeps decisions and acceptance, sends bounded work to three execution roles, and sends stable high-risk results to an isolated Reviewer.</desc>
-  <rect width="1200" height="560" rx="28" fill="#f7f4ec"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Meet the Dev Team</title>
+  <desc id="desc">Four character cards show the division of work: Explorer maps the codebase, Executor ships a clear local fix, Complex Executor builds substantial bounded changes, and Reviewer independently challenges the result without inherited history. Moon, Earth, and Sun symbols identify the Luna, Terra, and Sol model family.</desc>
 
-  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
-    <text x="58" y="66" fill="#0b0d12" font-size="34" font-weight="800" letter-spacing="-1">One lead. Four bounded roles.</text>
-    <text x="58" y="99" fill="#626978" font-size="17">Delegation starts only when it creates a clear context, cost, or latency benefit.</text>
+  <defs>
+    <g id="model-luna">
+      <path d="M12.7 1.4A6.5 6.5 0 1 0 13 14.3a5.2 5.2 0 0 1-.3-12.9Z" fill="#4d6fc4"/>
+    </g>
+    <g id="model-terra" fill="none" stroke="#3a886f" stroke-width="1.6" stroke-linecap="round">
+      <circle cx="7.5" cy="7.5" r="6"/>
+      <path d="M1.9 7.5h11.2M7.5 1.5c2.1 2 2.1 10 0 12M7.5 1.5c-2.1 2-2.1 10 0 12"/>
+    </g>
+    <g id="model-sol" fill="#b77700" stroke="#b77700" stroke-width="1.5" stroke-linecap="round">
+      <circle cx="7.5" cy="7.5" r="3.2" stroke="none"/>
+      <path d="M7.5.8v2M7.5 12.2v2M.8 7.5h2M12.2 7.5h2M2.8 2.8l1.4 1.4M10.8 10.8l1.4 1.4M12.2 2.8l-1.4 1.4M4.2 10.8l-1.4 1.4" fill="none"/>
+    </g>
+  </defs>
 
-    <g transform="translate(58 151)">
-      <rect width="262" height="250" rx="22" fill="#0b0d12"/>
-      <text x="28" y="42" fill="#8b93a5" font-size="12" font-weight="700" letter-spacing="2">MAIN THREAD</text>
-      <text x="28" y="85" fill="#f7f4ec" font-size="28" font-weight="800">Engineering lead</text>
-      <path d="M28 109H234" stroke="#303644"/>
-      <g fill="#c7ccd5" font-size="15">
-        <text x="28" y="142">• product intent</text>
-        <text x="28" y="174">• behavior contract</text>
-        <text x="28" y="206">• architecture &amp; risk</text>
-        <text x="28" y="238">• final acceptance</text>
+  <rect width="1200" height="720" rx="30" fill="#f7f4ec"/>
+
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif">
+    <!-- Title and the main-thread lead -->
+    <g id="title-block">
+      <text x="58" y="66" fill="#0b0d12" font-size="42" font-weight="820" letter-spacing="-1.4">Meet the dev team.</text>
+      <text x="58" y="101" fill="#626978" font-size="18">Four specialists. One main thread keeps the decisions and checks the result.</text>
+
+      <g id="main-thread" transform="translate(815 34)">
+        <rect width="327" height="84" rx="22" fill="#0b0d12"/>
+        <rect x="16" y="17" width="54" height="50" rx="15" fill="#ff7458"/>
+        <path d="M32 42h22M43 31v22" stroke="#0b0d12" stroke-width="5" stroke-linecap="round"/>
+        <text x="88" y="34" fill="#f7f4ec" font-size="16" font-weight="800">Main thread leads</text>
+        <text x="88" y="59" fill="#b9c0cd" font-size="13">decide · scope · verify · deliver</text>
       </g>
     </g>
 
-    <path d="M320 276H388" stroke="#0b0d12" stroke-width="2"/>
-    <path d="M377 267l12 9-12 9" fill="none" stroke="#0b0d12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="337" y="258" fill="#626978" font-size="11" font-weight="700">ROUTE</text>
+    <!-- Explorer -->
+    <g id="explorer-card" transform="translate(58 146)">
+      <rect width="527" height="236" rx="26" fill="#edf2ff" stroke="#7aa2ff" stroke-width="2"/>
 
-    <g transform="translate(405 151)">
-      <rect width="356" height="72" rx="16" fill="#edf2ff" stroke="#7aa2ff"/>
-      <circle cx="34" cy="36" r="17" fill="#7aa2ff"/>
-      <text x="29" y="42" fill="#0b0d12" font-size="18" font-weight="800">E</text>
-      <text x="66" y="31" fill="#0b0d12" font-size="18" font-weight="750">Explorer</text>
-      <text x="66" y="53" fill="#586171" font-size="13">read the repository · return evidence</text>
-      <text x="284" y="42" fill="#4d6fc4" font-size="11" font-weight="800">READ ONLY</text>
-    </g>
-    <g transform="translate(405 244)">
-      <rect width="356" height="72" rx="16" fill="#eff8e9" stroke="#83c95c"/>
-      <circle cx="34" cy="36" r="17" fill="#9fe870"/>
-      <text x="28" y="42" fill="#0b0d12" font-size="18" font-weight="800">X</text>
-      <text x="66" y="31" fill="#0b0d12" font-size="18" font-weight="750">Executor</text>
-      <text x="66" y="53" fill="#586171" font-size="13">clear scope · deterministic checks</text>
-      <text x="306" y="42" fill="#4f7f32" font-size="11" font-weight="800">WRITE</text>
-    </g>
-    <g transform="translate(405 337)">
-      <rect width="356" height="72" rx="16" fill="#fff6df" stroke="#e3ae3f"/>
-      <circle cx="34" cy="36" r="17" fill="#ffcf70"/>
-      <text x="28" y="42" fill="#0b0d12" font-size="18" font-weight="800">C</text>
-      <text x="66" y="31" fill="#0b0d12" font-size="18" font-weight="750">Complex Executor</text>
-      <text x="66" y="53" fill="#586171" font-size="13">frozen contract · substantial execution</text>
-      <text x="306" y="42" fill="#986b14" font-size="11" font-weight="800">WRITE</text>
-    </g>
-
-    <path d="M761 280H826" stroke="#0b0d12" stroke-width="2"/>
-    <path d="M815 271l12 9-12 9" fill="none" stroke="#0b0d12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="774" y="261" fill="#626978" font-size="11" font-weight="700">VERIFY</text>
-
-    <g transform="translate(842 151)">
-      <rect width="300" height="288" rx="22" fill="#fbf7ff" stroke="#9b63ca" stroke-width="2" stroke-dasharray="9 7"/>
-      <rect x="24" y="24" width="128" height="27" rx="13.5" fill="#d2a8ff"/>
-      <text x="39" y="42" fill="#26182f" font-size="11" font-weight="850" letter-spacing="1">NO HISTORY</text>
-      <text x="24" y="95" fill="#0b0d12" font-size="29" font-weight="800">Reviewer</text>
-      <text x="24" y="126" fill="#626978" font-size="14">A fresh read-only pass over:</text>
-      <g fill="#353b47" font-size="15">
-        <text x="24" y="164">• current diff and files</text>
-        <text x="24" y="196">• neutral behavior contract</text>
-        <text x="24" y="228">• test and verification evidence</text>
+      <g id="explorer-character" transform="translate(22 22)">
+        <rect width="150" height="192" rx="28" fill="#111827"/>
+        <circle cx="25" cy="25" r="6" fill="#7aa2ff"/>
+        <circle cx="43" cy="25" r="4" fill="#7aa2ff" fill-opacity=".55"/>
+        <path d="M28 190v-18c5-34 25-52 60-52s55 18 60 52v18z" fill="#dce6ff"/>
+        <path d="M47 130c6-16 20-26 41-26s35 10 41 26v39H47z" fill="#7aa2ff"/>
+        <rect x="51" y="48" width="74" height="78" rx="34" fill="#f7f4ec" stroke="#080a0e" stroke-width="7"/>
+        <path d="M53 77c7-25 20-36 39-36 20 0 33 11 36 33-21 7-47 3-62-8-3 5-7 9-13 11z" fill="#16213a"/>
+        <path d="M43 54c19-20 54-24 78-8l8 16c-25-8-53-6-77 7z" fill="#7aa2ff" stroke="#080a0e" stroke-width="7" stroke-linejoin="round"/>
+        <circle cx="78" cy="88" r="19" fill="none" stroke="#7aa2ff" stroke-width="7"/>
+        <circle cx="78" cy="88" r="5" fill="#080a0e"/>
+        <path d="M92 102l19 19" stroke="#7aa2ff" stroke-width="8" stroke-linecap="round"/>
+        <circle cx="109" cy="88" r="5" fill="#080a0e"/>
+        <path d="M87 109c8 6 17 6 25 0" fill="none" stroke="#080a0e" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="88" cy="158" r="18" fill="#111827" stroke="#7aa2ff" stroke-width="5"/>
+        <path d="M88 144l5 10 11 3-8 8 2 11-10-5-10 5 2-11-8-8 11-3z" fill="#dce6ff"/>
       </g>
-      <path d="M24 246H276" stroke="#dfd2e9"/>
-      <text x="24" y="277" fill="#7d558f" font-size="12">No author · no rationale · no expected verdict</text>
+
+      <g transform="translate(194 32)">
+        <text x="0" y="0" fill="#4d6fc4" font-size="12" font-weight="820" letter-spacing="1.6">01 · SEARCH &amp; TRACE</text>
+        <text x="0" y="42" fill="#0b0d12" font-size="30" font-weight="820">Explorer</text>
+        <text x="0" y="76" fill="#18202d" font-size="19" font-weight="740">Maps the codebase</text>
+        <text x="0" y="106" fill="#586171" font-size="15">Finds call paths, root causes,</text>
+        <text x="0" y="128" fill="#586171" font-size="15">and affected files. Never edits.</text>
+        <g transform="translate(0 155)">
+          <rect width="118" height="27" rx="13.5" fill="#d7e2ff"/>
+          <use href="#model-luna" transform="translate(8 6)"/>
+          <text x="70" y="18" text-anchor="middle" fill="#355aa9" font-size="11" font-weight="850">LUNA · MEDIUM</text>
+          <rect x="126" width="88" height="27" rx="13.5" fill="#7aa2ff"/>
+          <text x="170" y="18" text-anchor="middle" fill="#111827" font-size="11" font-weight="850">READ ONLY</text>
+        </g>
+      </g>
     </g>
 
-    <g transform="translate(58 460)" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">
-      <rect width="1084" height="48" rx="14" fill="#ebe7dd"/>
-      <circle cx="25" cy="24" r="5" fill="#0b0d12"/>
-      <text x="43" y="30" fill="#3f4653" font-size="14">tiny fix → main   ·   bounded repair → executor   ·   high-risk repair → fresh reviewer</text>
+    <!-- Executor -->
+    <g id="executor-card" transform="translate(615 146)">
+      <rect width="527" height="236" rx="26" fill="#eff8e9" stroke="#83c95c" stroke-width="2"/>
+
+      <g id="executor-character" transform="translate(22 22)">
+        <rect width="150" height="192" rx="28" fill="#122018"/>
+        <path d="M102 41c13 2 21 13 20 25-1 8-5 14-11 18L97 70l10-9-12-11z" fill="#e7fbd7" stroke="#080a0e" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M99 73l-36 36" stroke="#9fe870" stroke-width="8" stroke-linecap="round"/>
+        <path d="M24 190v-18c5-34 26-52 61-52s56 18 61 52v18z" fill="#e7fbd7"/>
+        <path d="M45 129c6-16 20-25 40-25 21 0 35 9 41 25v40H45z" fill="#9fe870"/>
+        <rect x="49" y="48" width="72" height="78" rx="33" fill="#f7f4ec" stroke="#080a0e" stroke-width="7"/>
+        <path d="M51 76c6-23 18-34 36-34 20 0 32 12 36 34-22 5-47 1-61-10-3 4-7 8-11 10z" fill="#17301e"/>
+        <path d="M42 57c2-26 19-41 43-41s41 15 43 41l12 5v11H30V62z" fill="#9fe870" stroke="#080a0e" stroke-width="7" stroke-linejoin="round"/>
+        <path d="M85 18v38" stroke="#080a0e" stroke-width="6"/>
+        <circle cx="68" cy="91" r="5" fill="#080a0e"/>
+        <circle cx="102" cy="91" r="5" fill="#080a0e"/>
+        <path d="M69 111c10 8 23 8 33 0" fill="none" stroke="#080a0e" stroke-width="5" stroke-linecap="round"/>
+        <rect x="52" y="144" width="66" height="37" rx="13" fill="#122018" stroke="#080a0e" stroke-width="5"/>
+        <path d="M72 153l-9 9 9 9M98 153l9 9-9 9" fill="none" stroke="#9fe870" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+
+      <g transform="translate(194 32)">
+        <text x="0" y="0" fill="#4f7f32" font-size="12" font-weight="820" letter-spacing="1.6">02 · LOCAL IMPLEMENTATION</text>
+        <text x="0" y="42" fill="#0b0d12" font-size="30" font-weight="820">Executor</text>
+        <text x="0" y="76" fill="#18202d" font-size="19" font-weight="740">Ships the clear fix</text>
+        <text x="0" y="106" fill="#586171" font-size="15">Changes a small, frozen scope</text>
+        <text x="0" y="128" fill="#586171" font-size="15">and proves it with checks.</text>
+        <g transform="translate(0 155)">
+          <rect width="118" height="27" rx="13.5" fill="#d9efcb"/>
+          <use href="#model-luna" transform="translate(8 6)"/>
+          <text x="70" y="18" text-anchor="middle" fill="#3f6d29" font-size="11" font-weight="850">LUNA · MEDIUM</text>
+          <rect x="126" width="65" height="27" rx="13.5" fill="#9fe870"/>
+          <text x="158.5" y="18" text-anchor="middle" fill="#122018" font-size="11" font-weight="850">WRITE</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Complex Executor -->
+    <g id="complex-executor-card" transform="translate(58 408)">
+      <rect width="527" height="236" rx="26" fill="#fff6df" stroke="#e3ae3f" stroke-width="2"/>
+
+      <g id="complex-executor-character" transform="translate(22 22)">
+        <rect width="150" height="192" rx="28" fill="#241b0f"/>
+        <path d="M22 190v-18c5-34 26-52 62-52s57 18 62 52v18z" fill="#fff1ca"/>
+        <path d="M44 130c6-17 20-27 40-27 22 0 36 10 42 27v39H44z" fill="#ffcf70"/>
+        <rect x="48" y="47" width="73" height="79" rx="34" fill="#f7f4ec" stroke="#080a0e" stroke-width="7"/>
+        <path d="M50 76c6-24 19-35 37-35 20 0 32 12 35 35-20 5-43 2-58-9-4 4-8 7-14 9z" fill="#3b2a10"/>
+        <path d="M40 56c2-25 20-41 44-41 25 0 42 16 44 41l12 5v12H28V61z" fill="#ffcf70" stroke="#080a0e" stroke-width="7" stroke-linejoin="round"/>
+        <path d="M69 17v38M99 17v38" stroke="#080a0e" stroke-width="6"/>
+        <circle cx="68" cy="91" r="5" fill="#080a0e"/>
+        <circle cx="101" cy="91" r="5" fill="#080a0e"/>
+        <path d="M70 111c9 7 21 7 30 0" fill="none" stroke="#080a0e" stroke-width="5" stroke-linecap="round"/>
+        <g transform="translate(66 142)">
+          <rect width="54" height="18" rx="6" fill="#241b0f" stroke="#080a0e" stroke-width="4"/>
+          <rect x="7" y="11" width="54" height="18" rx="6" fill="#755018" stroke="#080a0e" stroke-width="4"/>
+          <rect x="14" y="22" width="54" height="18" rx="6" fill="#ffcf70" stroke="#080a0e" stroke-width="4"/>
+        </g>
+        <path d="M40 161L25 141l12-9 15 20" fill="#fff1ca" stroke="#080a0e" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M31 139l10 13" stroke="#ffcf70" stroke-width="4" stroke-linecap="round"/>
+      </g>
+
+      <g transform="translate(194 32)">
+        <text x="0" y="0" fill="#986b14" font-size="12" font-weight="820" letter-spacing="1.6">03 · BOUNDED BUILD</text>
+        <text x="0" y="42" fill="#0b0d12" font-size="28" font-weight="820">Complex Executor</text>
+        <text x="0" y="76" fill="#18202d" font-size="19" font-weight="740">Builds the hard part</text>
+        <text x="0" y="106" fill="#586171" font-size="15">Handles substantial multi-file work</text>
+        <text x="0" y="128" fill="#586171" font-size="15">after the contract is frozen.</text>
+        <g transform="translate(0 155)">
+          <rect width="96" height="27" rx="13.5" fill="#f7dfaa"/>
+          <use href="#model-sol" transform="translate(8 6)"/>
+          <text x="60" y="18" text-anchor="middle" fill="#7b5510" font-size="11" font-weight="850">SOL · HIGH</text>
+          <rect x="104" width="65" height="27" rx="13.5" fill="#ffcf70"/>
+          <text x="136.5" y="18" text-anchor="middle" fill="#241b0f" font-size="11" font-weight="850">WRITE</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Reviewer -->
+    <g id="reviewer-card" transform="translate(615 408)">
+      <rect x="1" y="1" width="525" height="234" rx="25" fill="#fbf7ff" stroke="#9b63ca" stroke-width="2" stroke-dasharray="10 8"/>
+
+      <g id="reviewer-character" transform="translate(22 22)">
+        <rect x="1" y="1" width="148" height="190" rx="27" fill="#1c1525" stroke="#d2a8ff" stroke-width="3" stroke-dasharray="10 7"/>
+        <rect x="15" y="14" width="55" height="22" rx="11" fill="#d2a8ff"/>
+        <text x="42.5" y="29" text-anchor="middle" fill="#25182f" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9" font-weight="900">FRESH</text>
+        <path d="M24 190v-18c5-34 25-52 60-52s55 18 60 52v18z" fill="#f2e7ff"/>
+        <path d="M44 130c6-17 20-27 40-27s34 10 40 27v39H44z" fill="#d2a8ff"/>
+        <rect x="48" y="47" width="72" height="79" rx="34" fill="#f7f4ec" stroke="#080a0e" stroke-width="7"/>
+        <path d="M50 76c6-24 18-35 36-35 20 0 32 12 35 35-20 6-44 2-58-9-4 4-8 7-13 9z" fill="#32213d"/>
+        <path d="M43 75h83l-9 30c-20 9-45 9-65 0z" fill="#25182f" stroke="#080a0e" stroke-width="7" stroke-linejoin="round"/>
+        <path d="M56 86h26M92 86h20" stroke="#d2a8ff" stroke-width="6" stroke-linecap="round"/>
+        <path d="M68 116c9 6 21 6 30 0" fill="none" stroke="#080a0e" stroke-width="5" stroke-linecap="round"/>
+        <path d="M84 137l29 10v21c0 17-11 29-29 38-18-9-29-21-29-38v-21z" fill="#d2a8ff" stroke="#080a0e" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M69 168l10 10 21-25" fill="none" stroke="#25182f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+
+      <g transform="translate(194 32)">
+        <text x="0" y="0" fill="#7d558f" font-size="12" font-weight="820" letter-spacing="1.6">04 · INDEPENDENT CHECK</text>
+        <text x="0" y="42" fill="#0b0d12" font-size="30" font-weight="820">Reviewer</text>
+        <text x="0" y="76" fill="#18202d" font-size="19" font-weight="740">Challenges the result</text>
+        <text x="0" y="106" fill="#586171" font-size="15">Reads the current diff from scratch</text>
+        <text x="0" y="128" fill="#586171" font-size="15">and looks for real regressions.</text>
+        <g transform="translate(0 155)">
+          <rect width="96" height="27" rx="13.5" fill="#ead8f7"/>
+          <use href="#model-sol" transform="translate(8 6)"/>
+          <text x="60" y="18" text-anchor="middle" fill="#6c4480" font-size="11" font-weight="850">SOL · HIGH</text>
+          <rect x="104" width="88" height="27" rx="13.5" fill="#d2a8ff"/>
+          <text x="148" y="18" text-anchor="middle" fill="#25182f" font-size="11" font-weight="850">READ ONLY</text>
+          <rect x="200" width="92" height="27" rx="13.5" fill="#25182f"/>
+          <text x="246" y="18" text-anchor="middle" fill="#f2e7ff" font-size="11" font-weight="850">NO HISTORY</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- A small routing cue: the cards are specialists, not a mandatory pipeline. -->
+    <g id="routing-note" transform="translate(58 674)">
+      <circle cx="6" cy="6" r="6" fill="#ff7458"/>
+      <text x="24" y="12" fill="#626978" font-size="14">The lead calls only the specialist the task actually needs — tiny fixes stay in the main thread.</text>
+      <g id="model-symbols" transform="translate(820 -2)">
+        <g>
+          <use href="#model-luna"/>
+          <text x="22" y="13" fill="#626978" font-size="11" font-weight="760">Luna</text>
+        </g>
+        <g transform="translate(78)">
+          <use href="#model-terra"/>
+          <text x="22" y="13" fill="#626978" font-size="11" font-weight="760">Terra</text>
+        </g>
+        <g transform="translate(160)">
+          <use href="#model-sol"/>
+          <text x="22" y="13" fill="#626978" font-size="11" font-weight="760">Sol</text>
+        </g>
+      </g>
     </g>
   </g>
 </svg>
