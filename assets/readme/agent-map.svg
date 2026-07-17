@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Dev Team routing map</title>
+  <desc id="desc">The main thread keeps decisions and acceptance, sends bounded work to three execution roles, and sends stable high-risk results to an isolated Reviewer.</desc>
+  <rect width="1200" height="560" rx="28" fill="#f7f4ec"/>
+
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <text x="58" y="66" fill="#0b0d12" font-size="34" font-weight="800" letter-spacing="-1">One lead. Four bounded roles.</text>
+    <text x="58" y="99" fill="#626978" font-size="17">Delegation starts only when it creates a clear context, cost, or latency benefit.</text>
+
+    <g transform="translate(58 151)">
+      <rect width="262" height="250" rx="22" fill="#0b0d12"/>
+      <text x="28" y="42" fill="#8b93a5" font-size="12" font-weight="700" letter-spacing="2">MAIN THREAD</text>
+      <text x="28" y="85" fill="#f7f4ec" font-size="28" font-weight="800">Engineering lead</text>
+      <path d="M28 109H234" stroke="#303644"/>
+      <g fill="#c7ccd5" font-size="15">
+        <text x="28" y="142">• product intent</text>
+        <text x="28" y="174">• behavior contract</text>
+        <text x="28" y="206">• architecture &amp; risk</text>
+        <text x="28" y="238">• final acceptance</text>
+      </g>
+    </g>
+
+    <path d="M320 276H388" stroke="#0b0d12" stroke-width="2"/>
+    <path d="M377 267l12 9-12 9" fill="none" stroke="#0b0d12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="337" y="258" fill="#626978" font-size="11" font-weight="700">ROUTE</text>
+
+    <g transform="translate(405 151)">
+      <rect width="356" height="72" rx="16" fill="#edf2ff" stroke="#7aa2ff"/>
+      <circle cx="34" cy="36" r="17" fill="#7aa2ff"/>
+      <text x="29" y="42" fill="#0b0d12" font-size="18" font-weight="800">E</text>
+      <text x="66" y="31" fill="#0b0d12" font-size="18" font-weight="750">Explorer</text>
+      <text x="66" y="53" fill="#586171" font-size="13">read the repository · return evidence</text>
+      <text x="284" y="42" fill="#4d6fc4" font-size="11" font-weight="800">READ ONLY</text>
+    </g>
+    <g transform="translate(405 244)">
+      <rect width="356" height="72" rx="16" fill="#eff8e9" stroke="#83c95c"/>
+      <circle cx="34" cy="36" r="17" fill="#9fe870"/>
+      <text x="28" y="42" fill="#0b0d12" font-size="18" font-weight="800">X</text>
+      <text x="66" y="31" fill="#0b0d12" font-size="18" font-weight="750">Executor</text>
+      <text x="66" y="53" fill="#586171" font-size="13">clear scope · deterministic checks</text>
+      <text x="306" y="42" fill="#4f7f32" font-size="11" font-weight="800">WRITE</text>
+    </g>
+    <g transform="translate(405 337)">
+      <rect width="356" height="72" rx="16" fill="#fff6df" stroke="#e3ae3f"/>
+      <circle cx="34" cy="36" r="17" fill="#ffcf70"/>
+      <text x="28" y="42" fill="#0b0d12" font-size="18" font-weight="800">C</text>
+      <text x="66" y="31" fill="#0b0d12" font-size="18" font-weight="750">Complex Executor</text>
+      <text x="66" y="53" fill="#586171" font-size="13">frozen contract · substantial execution</text>
+      <text x="306" y="42" fill="#986b14" font-size="11" font-weight="800">WRITE</text>
+    </g>
+
+    <path d="M761 280H826" stroke="#0b0d12" stroke-width="2"/>
+    <path d="M815 271l12 9-12 9" fill="none" stroke="#0b0d12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="774" y="261" fill="#626978" font-size="11" font-weight="700">VERIFY</text>
+
+    <g transform="translate(842 151)">
+      <rect width="300" height="288" rx="22" fill="#fbf7ff" stroke="#9b63ca" stroke-width="2" stroke-dasharray="9 7"/>
+      <rect x="24" y="24" width="128" height="27" rx="13.5" fill="#d2a8ff"/>
+      <text x="39" y="42" fill="#26182f" font-size="11" font-weight="850" letter-spacing="1">NO HISTORY</text>
+      <text x="24" y="95" fill="#0b0d12" font-size="29" font-weight="800">Reviewer</text>
+      <text x="24" y="126" fill="#626978" font-size="14">A fresh read-only pass over:</text>
+      <g fill="#353b47" font-size="15">
+        <text x="24" y="164">• current diff and files</text>
+        <text x="24" y="196">• neutral behavior contract</text>
+        <text x="24" y="228">• test and verification evidence</text>
+      </g>
+      <path d="M24 246H276" stroke="#dfd2e9"/>
+      <text x="24" y="277" fill="#7d558f" font-size="12">No author · no rationale · no expected verdict</text>
+    </g>
+
+    <g transform="translate(58 460)" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">
+      <rect width="1084" height="48" rx="14" fill="#ebe7dd"/>
+      <circle cx="25" cy="24" r="5" fill="#0b0d12"/>
+      <text x="43" y="30" fill="#3f4653" font-size="14">tiny fix → main   ·   bounded repair → executor   ·   high-risk repair → fresh reviewer</text>
+    </g>
+  </g>
+</svg>
