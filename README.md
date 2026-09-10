@@ -6,7 +6,7 @@
   <img src="./assets/readme/agent-map.webp" width="100%" alt="Team Mode routes evidence gathering, bounded execution, and independent review while the main thread leads and accepts the final result.">
 </p>
 
-`team-mode` is a Codex Skill for coordinating three working agents across substantial development, research, analysis, planning, document, data, and content tasks. The main thread keeps unresolved decisions and performs final acceptance; subagents take on work that benefits from focused context, lower cost, safe parallelism, or independent judgment. A separate low-cost `default` guard rejects any spawn that omits `agent_type`.
+协调探索、执行和独立评审，让复杂任务按明确职责并行推进，由主 Agent 统一验收。
 
 It is a value-based routing guide, not a mandatory pipeline.
 

@@ -1,6 +1,6 @@
 ---
 name: team-mode
-description: Proactively decompose and coordinate substantial development, research, analysis, planning, document, data, and content work with the smallest useful parallel set of custom subagents. Use when independent execution, parallelism, context isolation, or fresh review can improve speed or quality. Keep unresolved decisions and final acceptance in the main thread. Do not use for casual or simple tasks.
+description: "为复杂开发、研究、文档、数据和内容任务协调职责明确的子 Agent，按需要分配探索、执行与独立评审。适用于任务可独立拆分、并行或隔离上下文能改善结果的场景；主 Agent 保留未决判断与最终验收，不用于简单问答和小任务。"
 ---
 
 # Team Mode
