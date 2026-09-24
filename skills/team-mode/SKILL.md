@@ -1,6 +1,6 @@
 ---
 name: team-mode
-description: "Use when a task may benefit from a bounded subagent for implementation, large-codebase discovery at task start, independent review, pre-commit code simplification, or expert work on complex decisions, modeling, automation, or repeated failures. The main agent chooses whether to delegate and accepts the result. Do not use for simple questions or short work with no meaningful review or delegation."
+description: "Use when a task may benefit from a bounded subagent for implementation, large-codebase discovery at task start, independent review, requested or pre-commit code simplification, or expert work on complex decisions, modeling, automation, or repeated failures. The main agent chooses whether to delegate and accepts the result. Do not use for simple questions or short work with no meaningful review or delegation."
 metadata:
   compatibility: "Codex with custom subagents; local model and usage diagnostics require Python 3.10+ and retained session logs."
 ---
@@ -11,26 +11,22 @@ The main agent decomposes the user's task, decides what to delegate, and accepts
 
 ## When to dispatch
 
-Before dispatch, state the intended role and count, each child's independent scope, expected return, and write ownership. Keep write scopes separate whenever agents may edit the same workspace.
-
 Delegate a defined part of the task when a child can make useful progress through implementation, codebase discovery, review, or expert work. The main agent owns how the parts fit together, unresolved product decisions, and final acceptance. There is no target number of agents or required sequence.
 
 Choose the smallest count that covers the independent work. One child is the default for one bounded question or review lens. Add children only when each can work and report independently, with a distinct question, scope, or lens. A large diff alone is not a reason to fan out.
 
-Two or three focused children are a useful starting point for genuinely multi-part work, not a fixed limit. Add more only when additional independent workstreams justify them. Consider coordination and usage overhead. Respect the host's active-agent limit; if parallel dispatch is unavailable, continue sequentially or inline without silently dropping coverage.
+Consider coordination and usage overhead. Respect the host's active-agent limit; if parallel dispatch is unavailable, continue sequentially or inline without silently dropping coverage.
 
-- `Explorer` — at the start of a new task, use only when the main agent needs to search a large codebase to locate the primary files and entry points. Small lookups and general research stay with the main agent. Read [Explore](references/explore.md) for this route.
+- `Explorer` — use for substantial codebase discovery at the start of a task. Handle small lookups and general research directly. Read [Explore](references/explore.md) for this route.
 - `Executor` — use when the intended result and file ownership are clear enough for independent implementation. Give each target one owner.
 - `Reviewer` — use when the user asks for review or a completed result has a meaningful risk of unnoticed defects. Review the assigned result without steering toward a suspected answer; save a Markdown report when a lasting record helps.
 - `ExpertAdvisor` — use for a complex architecture or high-impact decision, a problem unresolved after repeated attempts, or modeling or complex computer automation the main agent cannot handle well. Ask for an independent plan or assign the expert a concrete outcome to produce.
 
-Before committing code, follow [Simplify](references/simplify.md). One fresh `Reviewer` can cover a narrow change. Use multiple Reviewers only when broader or riskier work has distinct, independent review lenses. Reviewers may share the same read-only source scope, but each saved report needs a unique path outside the changed source diff. Prefer returning findings directly when no lasting report is needed.
+When the user asks to simplify code, or before committing a code change, follow [Simplify](references/simplify.md) for scoped cleanup and final review. The main agent decides which findings to apply and accepts the final result.
 
-Reviewer assignments prohibit source edits; the installed `Reviewer` profile may still grant workspace-write permission, so this boundary is instruction-based. The main agent, or an `Executor` with explicit write ownership, chooses and applies worthwhile fixes.
+For each dispatch, name the intended `agent_type`, count, independent scope, expected return, and write ownership. Keep write scopes separate when agents share a workspace.
 
-If any reviewed file changes after the Simplify review, send the resulting diff to one fresh `Reviewer` for a final correctness and omission check. If no reviewed files change, the original Reviewer can serve as the final check only when its assignment also covered correctness and omissions. Otherwise, dispatch a fresh Reviewer for that final check. The main agent accepts the final result.
-
-Name the intended `agent_type` explicitly. Other configured roles and models are allowed when appropriate. Model and effort defaults, plus the optional `default.toml` sentinel, are described in [profile setup](references/custom-agents.md); normal dispatch does not require reading it.
+Other configured roles and models are allowed when appropriate. Model and effort defaults, plus the optional `default.toml` sentinel, are described in [profile setup](references/custom-agents.md); normal dispatch does not require reading it.
 
 ## Context and handoff
 

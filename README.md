@@ -17,7 +17,7 @@ Team Mode 是 Codex Skill。主 Agent 负责拆解、未决判断和最终验收
 
 Explorer 默认请求 Fast；其他角色沿用主 Agent 的速度档。GPT-6 Fast 可用时，额度消耗为 Standard 的 2.5 倍，实际生效档位以子 Agent 运行记录为准。
 
-Skill 内置 [Explore](./skills/team-mode/references/explore.md) 与 [Simplify](./skills/team-mode/references/simplify.md)：新任务开始时，Explore 按需帮助主 Agent 定位大型代码库；提交代码前，由新的 Reviewer 子 Agent 检查本次改动是否引入不必要的复杂度，主 Agent 处理发现的问题并决定是否提交。
+Skill 内置 [Explore](./skills/team-mode/references/explore.md) 与 [Simplify](./skills/team-mode/references/simplify.md)：前者定位大型代码库中的相关实现，后者按请求或在提交前检查改动的复杂度。子 Agent 数量由独立问题或审查视角决定；主 Agent 处理发现并完成验收。
 
 主 Agent 负责拆解用户任务，决定每个子 Agent 的具体问题或交付结果，以及各部分如何衔接。派发时只交代该部分所需的背景、范围和约束；文件位置、故障现象和过往尝试只是线索。子 Agent 在分配的范围内自行选择做法，不重新拆解整个任务。默认以 `fork_turns="none"` 派发；只有 Executor 确实依赖最近对话中的决定时才继承少量相关回合。ExpertAdvisor 不固定模型，由主 Agent 按次选择。子 Agent 提示词与 Skill 调度指令统一使用英语。
 
