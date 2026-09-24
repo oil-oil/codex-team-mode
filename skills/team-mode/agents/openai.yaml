@@ -1,7 +1,7 @@
 interface:
   display_name: "Team Mode"
   short_description: "Parallelize substantial work with focused subagents"
-  default_prompt: "Use $team-mode to decompose this substantial task, dispatch independent bounded slices in parallel when useful, and keep unresolved decisions and final acceptance in the main thread."
+  default_prompt: "Use $team-mode to decompose this substantial task, choose the smallest subagent set that covers independent work, dispatch non-overlapping slices in parallel when useful, and keep integration and final acceptance in the main thread."
 
 policy:
   allow_implicit_invocation: true
