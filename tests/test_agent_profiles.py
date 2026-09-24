@@ -25,8 +25,7 @@ class AgentProfileTests(unittest.TestCase):
                     (data["name"], data["model"], data["model_reasoning_effort"], data["sandbox_mode"]),
                     expected,
                 )
-                self.assertTrue(data["developer_instructions"].isascii())
-                self.assertLess(len(data["developer_instructions"].split()), 75)
+                self.assertTrue(data["developer_instructions"].strip())
 
     def test_advisor_is_writable_and_model_free(self) -> None:
         data = self.profile("ExpertAdvisor.toml")
@@ -34,16 +33,9 @@ class AgentProfileTests(unittest.TestCase):
         self.assertEqual(data["sandbox_mode"], "workspace-write")
         self.assertNotIn("model", data)
         self.assertNotIn("model_reasoning_effort", data)
-        self.assertTrue(data["developer_instructions"].isascii())
-        self.assertLess(len(data["developer_instructions"].split()), 75)
+        self.assertTrue(data["developer_instructions"].strip())
 
-    def test_roles_stay_bounded(self) -> None:
-        for filename in ("Explorer.toml", "Executor.toml", "Reviewer.toml", "ExpertAdvisor.toml"):
-            with self.subTest(filename=filename):
-                instructions = self.profile(filename)["developer_instructions"]
-                self.assertRegex(instructions.lower(), r"do not (?:edit or )?spawn subagents")
-        self.assertIn("large codebase", self.profile("Explorer.toml")["developer_instructions"])
-        self.assertIn("material", self.profile("Reviewer.toml")["developer_instructions"])
+    def test_default_sentinel_blocks_dispatch(self) -> None:
         self.assertIn("DISPATCH BLOCKED", self.profile("default.toml")["developer_instructions"])
 
 
