@@ -14,12 +14,16 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-RATE_DATE = "2026-07-18"
-RATE_SOURCE = "https://help.openai.com/en/articles/20001106-codex-rate-card"
+RATE_DATE = "2026-09-24"
+RATE_SOURCE = "https://learn.chatgpt.com/docs/pricing"
 RATES = {
-    "gpt-5.6-luna": {"input": 25.0, "cached": 2.5, "output": 150.0},
-    "gpt-5.6-terra": {"input": 62.5, "cached": 6.25, "output": 375.0},
-    "gpt-5.6-sol": {"input": 125.0, "cached": 12.5, "output": 750.0},
+    "gpt-6-astra": {"input": 250.0, "cached": 25.0, "output": 1250.0},
+    "gpt-6-sol": {"input": 50.0, "cached": 5.0, "output": 250.0},
+    "gpt-6-luna": {"input": 2.5, "cached": 0.25, "output": 12.5},
+    # 保留旧任务的模型识别，使用同一官方费率表中的当前 Standard 费率。
+    "gpt-5.6-luna": {"input": 5.0, "cached": 0.5, "output": 30.0},
+    "gpt-5.6-terra": {"input": 50.0, "cached": 5.0, "output": 300.0},
+    "gpt-5.6-sol": {"input": 100.0, "cached": 10.0, "output": 500.0},
 }
 
 USAGE_FIELDS = ("input_tokens", "cached_input_tokens", "output_tokens", "reasoning_output_tokens")

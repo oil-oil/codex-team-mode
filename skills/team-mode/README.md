@@ -1,17 +1,17 @@
 # Team Mode 小队模式
 
-这是Codex专用Skill，使用三个自定义工作角色协调有一定规模的任务。主线程负责未决判断、集成与最终验收；Explorer查证据，Executor实现有明确边界的工作，Reviewer独立检查稳定产物。团队规模由任务决定，简单任务可以不派子Agent。
+主 Agent 按任务价值协调四个工作角色：Explorer 定位大型代码库的主要文件，Executor 完成有边界的实现，Reviewer 独立复审并可按需留存 Markdown 报告，ExpertAdvisor 处理复杂决策、建模、复杂计算机自动化或反复未解决的问题。简单任务可以不派子 Agent。
 
-## 安装与依赖
+主 Agent 负责拆解任务并分配具体问题或交付结果；文件提示和故障猜测只是线索，子 Agent 在分配的范围内自行选择做法。
 
-可以告诉 Agent：“请帮我安装 https://github.com/oil-oil/codex-team-mode”。也可以运行 `npx skills add oil-oil/codex-team-mode`。命令安装需要Node.js/npx；用量诊断使用Python 3.10+标准库，Windows入口为 `py -3`。
+四个角色模板位于仓库 [`agents/`](../../agents/)；`default.toml` 是可选的 GPT-6 Luna Low 派发哨兵，不是 Team Mode 的必要条件。安装和模型优先级见[角色配置说明](references/custom-agents.md)。
 
-Skill与角色配置分开安装。安装范围、角色模型和派发哨兵见[配置说明](references/custom-agents.md)。正常使用不需要额外API密钥，使用宿主已配置的模型服务。当前验证平台为macOS，其他系统未实机验证。
+[Explore](references/explore.md) 用于大型代码库定位，[Simplify](references/simplify.md) 用于有明确简化需求的代码改动。两者是按需读取的参考文档，不增加角色或固定派发人数。
 
-## 使用与边界
+提示词统一使用英语。派发默认不继承主对话；Reviewer 和 ExpertAdvisor 必须从空历史上下文开始，Executor 只有确实依赖最近对话中的决定时才继承少量回合。ExpertAdvisor 不固定模型，主 Agent 选择可用的更强模型并核查其方案或执行结果。
 
-请求：“使用 $team-mode 完成这个任务，选择最小有用的小队。”结果是经过主线程验收的统一交付，不要求每次按探索、实现、复审顺序运行。缺少自定义Agent派发能力时由主线程完成；更高模型和更多复审者不保证更高质量。
+本地诊断可按需运行 `python3 scripts/current_model.py` 和 `python3 scripts/usage_by_model.py --days 7 --by-agent --json`。完整用法见[项目说明](../../README.md)。
 
-本地用量脚本默认读取活动与归档日志，不上传日志；模型执行遵循宿主的数据设置。统计输出不证明质量或账户实际费用；`--days` 按本地创建日期筛会话，旧任务续跑用 `--task-id` 或 `--all`。按需运行 `python3 scripts/usage_by_model.py --days 7 --by-agent --json`，真实效果评估见[评估说明](references/evaluation.md)。
+## 适用边界与依赖
 
-源码、测试与完整安装入口见[项目中文说明](https://github.com/oil-oil/codex-team-mode/blob/main/README.zh-CN.md)。
+Team Mode 适用于可明确分工、独立复审或确实需要专家处理复杂问题的任务；普通问答和短任务由主 Agent 直接完成。Skill 需要支持自定义子 Agent 的 Codex；本地诊断脚本需要 Python 3.10+ 和保留的会话日志。
