@@ -1,6 +1,6 @@
 ---
 name: team-mode
-description: "Use when a task has a bounded part worth delegating, needs primary files located in a large codebase, calls for independent review or scoped code simplification, or needs stronger expertise for a complex decision, modeling, automation, or repeated failed repair. The main agent keeps decisions and final acceptance. Do not use for simple questions or short work that gains nothing from delegation."
+description: "Use when a task may benefit from a bounded subagent for implementation, large-codebase discovery at task start, independent review, pre-commit code simplification, or expert work on complex decisions, modeling, automation, or repeated failures. The main agent chooses whether to delegate and accepts the result. Do not use for simple questions or short work with no meaningful review or delegation."
 metadata:
   compatibility: "Codex with custom subagents; local model and usage diagnostics require Python 3.10+ and retained session logs."
 ---
@@ -13,10 +13,12 @@ The main agent decomposes the user's task, decides what to delegate, and accepts
 
 Delegate a defined part of the task when a child can make useful progress through implementation, codebase discovery, review, or expert work. The main agent owns how the parts fit together, unresolved product decisions, and final acceptance. There is no target number of agents or required sequence.
 
-- `Explorer` — use only when the main agent explicitly needs to search a large codebase to locate the primary files and entry points. Small lookups and general research stay with the main agent. Read [Explore](references/explore.md) for this route.
+- `Explorer` — at the start of a new task, use only when the main agent needs to search a large codebase to locate the primary files and entry points. Small lookups and general research stay with the main agent. Read [Explore](references/explore.md) for this route.
 - `Executor` — use when the intended result and file ownership are clear enough for independent implementation. Give each target one owner.
-- `Reviewer` — use when the user asks for review or a completed result has a meaningful risk of unnoticed defects. Review the assigned result without steering toward a suspected answer; save a Markdown report when a lasting record helps. For code cleanup, read [Simplify](references/simplify.md).
+- `Reviewer` — use when the user asks for review or a completed result has a meaningful risk of unnoticed defects. Review the assigned result without steering toward a suspected answer; save a Markdown report when a lasting record helps.
 - `ExpertAdvisor` — use for a complex architecture or high-impact decision, a problem unresolved after repeated attempts, or modeling or complex computer automation the main agent cannot handle well. Ask for an independent plan or assign the expert a concrete outcome to produce.
+
+Before committing code, read [Simplify](references/simplify.md) and assign a fresh `Reviewer` to check the changed work. The main agent scopes the review, handles findings, and decides whether the code is ready to commit.
 
 Name the intended `agent_type` explicitly. Other configured roles and models are allowed when appropriate. Model and effort defaults, plus the optional `default.toml` sentinel, are described in [profile setup](references/custom-agents.md); normal dispatch does not require reading it.
 

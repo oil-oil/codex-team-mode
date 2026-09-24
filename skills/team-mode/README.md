@@ -6,7 +6,7 @@
 
 四个角色模板位于仓库 [`agents/`](../../agents/)；`default.toml` 是可选的 GPT-6 Luna Low 派发哨兵，不是 Team Mode 的必要条件。安装和模型优先级见[角色配置说明](references/custom-agents.md)。
 
-[Explore](references/explore.md) 用于大型代码库定位，[Simplify](references/simplify.md) 用于有明确简化需求的代码改动。两者是按需读取的参考文档，不增加角色或固定派发人数。
+[Explore](references/explore.md) 在新任务开始、需要摸清大型代码库时使用；[Simplify](references/simplify.md) 在提交代码前由新的 Reviewer 子 Agent 检查本次改动的复杂度，也可响应明确的简化请求。主 Agent 负责处理发现的问题和决定是否提交。
 
 提示词统一使用英语。派发默认不继承主对话；Reviewer 和 ExpertAdvisor 必须从空历史上下文开始，Executor 只有确实依赖最近对话中的决定时才继承少量回合。ExpertAdvisor 不固定模型，主 Agent 选择可用的更强模型并核查其方案或执行结果。
 
